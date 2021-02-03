@@ -1,0 +1,36 @@
+plugins {
+  id "com.palantir.docker" version "0.25.0"
+  id 'idea'
+  id 'scala'
+  id 'application'
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+group 'com.madpoptart'
+version '0.0.1'
+
+mainClassName = "Main"
+
+dependencies {
+   implementation group: 'org.scala-lang', name: 'scala-library', version: '2.13.4'
+   implementation group: 'org.scala-lang', name: 'scala-compiler', version: '2.13.4'	
+}
+
+docker {
+  dependsOn assembleDist
+  name project.name
+  files tasks.installDist.outputs
+  dockerfile file('docker/Dockerfile')
+}
+
+clean {
+    doFirst{
+        delete "$rootDir/out"
+        delete "$rootDir/build"
+        delete "$rootDir/bin"
+    }
+}
