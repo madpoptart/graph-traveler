@@ -24,6 +24,8 @@ dependencies {
 docker {
     dependsOn assembleDist
     name project.name
+    tag 'Me', 'madpoptart/' + project.name + ":" + version
+    tag 'Latest', 'madpoptart/' + project.name
     files tasks.installDist.outputs
     dockerfile file('docker/Dockerfile')
 }
