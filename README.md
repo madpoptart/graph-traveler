@@ -2,16 +2,19 @@
 Simple project to traverse a graph of connected nodes.
 
 ## Building
-* gradle docker 
+To build a local docker image run 
+```bash 
+./gradlew docker 
+```
 
 ## Pushing to docker hub 
 Latest
 ```bash 
-gradle docker dockerTagLatest dockerPushLatest 
+./gradlew docker dockerTagLatest dockerPushLatest 
 ```
-Version 
+Version
 ```bash 
-gradle docker dockerTagMe dockerPushMe 
+./gradlew docker dockerTagMe dockerPushMe 
 ```
 
 ## Running 
@@ -28,7 +31,7 @@ docker run -v $(pwd)/graph.csv:/data/data.txt madpoptart/graph-traveler --input 
 docker run -v (pwd)/graph.csv:/data/data.txt madpoptart/graph-traveler --input /data/data.txt --all
 ```
 
-### Running with gradle Application plugin
+### Running with gradle application plugin
 https://docs.gradle.org/current/userguide/application_plugin.html
 
 To see a help and usage message run the program with --help
@@ -36,9 +39,9 @@ To see a help and usage message run the program with --help
 ./gradlew run --args="--help"
 ```
 
-To run all test using the graph.csv input file and the --all flag
+To run all test using the graph.csv file use the --all flag and the --input flag
 ```bash 
-gradle run --args="--input=graph.csv --all"
+./gradlew run --args="--input=graph.csv --all"
 ```
 
 
