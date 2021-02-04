@@ -33,7 +33,7 @@ https://docs.gradle.org/current/userguide/application_plugin.html
 
 To see a help and usage message run the program with --help
 ```bash
-gradle run --args="--help"
+./gradlew run --args="--help"
 ```
 
 To run all test using the graph.csv input file and the --all flag
@@ -41,5 +41,19 @@ To run all test using the graph.csv input file and the --all flag
 gradle run --args="--input=graph.csv --all"
 ```
 
+
+## Building
+To build a runnable program using gradle and the application plugin run
+```bash
+./gradlew installDist
+```
+The build will be placed in 
+```bash
+build/install
+```
+and can be run with 
+```bash
+build/install/graph-traveler/bin/graph-traveler --input=graph.csv --all 
+```
 
 
